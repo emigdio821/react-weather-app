@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Location = ({ city }) => (
-  <div>
+  <div className="location-container">
     <h1 className="title">{ city }</h1>
   </div>
 );

@@ -1,0 +1,15 @@
+.location-container {
+  width: 100%;
+}
+
+.weather-location-container {
+  width: 400px;
+  padding: 10px;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+}
+
+.location-container .title {
+  color: white;
+  font-family: monospace, sans-serif;
+}
