@@ -1,3 +1,10 @@
+html {
+  background-size: cover;
+  background-color: #4527a0;
+  background-attachment: fixed;
+  background-image: url('assets/main-wallpaper.svg');
+}
+
 body {
   margin: 0;
   padding: 0;
