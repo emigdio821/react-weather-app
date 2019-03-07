@@ -1,8 +1,7 @@
 html, body {
   background-size: cover;
-  background-color: #4527a0;
+  background-color: #FAFAFA;
   background-attachment: fixed;
-  background-image: url('assets/main-wallpaper.svg');
 }
 
 body {

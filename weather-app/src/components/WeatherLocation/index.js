@@ -47,15 +47,17 @@ class WeatherLocation extends Component {
     const {city, data} = this.state;
 
     return (
-      <Card
-        className="text-center"
-        onClick={onWeatherLocationClick}
-      >
-        <Card.Body>
-          <Location city={city} />
-          {data ? <WeatherData data={data} /> : <CircularProgress />}
-        </Card.Body>
-      </Card>
+      <div className="col-lg-4 mb-3">
+        <Card
+          className="text-center weather-card"
+          onClick={onWeatherLocationClick}
+        >
+          <Card.Body>
+            <Location city={city} />
+            {data ? <WeatherData data={data} /> : <CircularProgress />}
+          </Card.Body>
+        </Card>
+      </div>
     );
   }
 };
