@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Card } from 'react-bootstrap';
 
 const Location = ({ city }) => (
-  <div className="location-container">
-    <h1 className="title">{ city }</h1>
-  </div>
+  <Card.Title className="text-monospace">{city}</Card.Title>
 );
 
 Location.propTypes = {

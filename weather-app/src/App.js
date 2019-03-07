@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import LocationList from './components/LocationList';
+import { Container, CardColumns } from 'react-bootstrap';
 
 const cities = [
   'Jalisco, MX',
@@ -9,11 +10,20 @@ const cities = [
 ];
 
 class App extends Component {
-  render() {
+  handleSelectionLocation = (city) => {
+    console.log(`handleSelectionLocation ${city}`);
+  };
+
+  render = () => {
     return (
-      <div className="App">
-        <LocationList cities={ cities } />
-      </div>
+      <Container className="my-4">
+        <CardColumns>
+          <LocationList
+            cities={cities}
+            onSelectedLocation={this.handleSelectionLocation}
+          />
+        </CardColumns>
+      </Container>
     );
   }
 }

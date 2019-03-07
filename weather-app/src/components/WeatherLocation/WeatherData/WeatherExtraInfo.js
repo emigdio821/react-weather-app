@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Card } from 'react-bootstrap';
 
 const WeatherExtraInfo = ({ humidity, wind }) => (
-  <div className="weather-xinfo-container">
+  <Card.Text>
     <span className="xinfo-text">{ `Humidity: ${humidity}%` }</span>
     <span className="xinfo-text">{ `Wind: ${wind}` }</span>
-  </div>
+  </Card.Text>
 );
 
 WeatherExtraInfo.propTypes = {

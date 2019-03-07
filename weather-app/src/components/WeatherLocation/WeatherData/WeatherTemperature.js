@@ -1,6 +1,7 @@
 import React from 'react';
 import WeatherIcons from 'react-weathericons';
 import PropTypes from 'prop-types';
+import { Card } from 'react-bootstrap';
 import {
   CLOUD,
   FOG,
@@ -26,16 +27,16 @@ const getWeatherIcon = (weatherState) => {
   const iconSize = "2x";
 
   return (
-    <WeatherIcons className="wicon" name={ icon ? icon : "day-sunny" } size={ iconSize } />
+    <WeatherIcons className="wicon mr-2" name={ icon ? icon : "day-sunny" } size={ iconSize } />
   )
 }
 
 const WeatherTemperature = ({ temperature, weatherState }) => (
-  <div className="weather-temp-container">
+  <Card.Text>
     { getWeatherIcon(weatherState) }
-    <span className="temperature">{ temperature }</span>
-    <span className="temperature-type">ºC</span>
-  </div>
+    <span className="h2">{ temperature }</span>
+    <span className="text-muted">ºC</span>
+  </Card.Text>
 );
 
 WeatherTemperature.propTypes = {
