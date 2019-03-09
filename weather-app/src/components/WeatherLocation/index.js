@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import { Card, Col, Alert } from 'react-bootstrap';
-import { PropTypes } from 'prop-types';
-import GetUrlWeatherByCity from './../../services/GetUrlWeatherByCity'
+import PropTypes from 'prop-types';
+import WeatherUrl from '../../services/WeatherUrl'
 import TransformWeather from './../../services/TransformWeather';
 import Location from './Location';
 import WeatherData from './WeatherData';
+import Loader from './../Loader'
 import './styles.css';
 
 class WeatherLocation extends Component {
@@ -21,16 +21,8 @@ class WeatherLocation extends Component {
     }
   }
 
-  componentDidMount = () => {
-    this.onUpdateWeather();
-  }
-
-  componentDidUpdate = (prevProps, prevState) => {
-    console.log('componentDidUpdate');
-  }
-
-  onUpdateWeather = () => {
-    const api_weather = GetUrlWeatherByCity(this.state.city);
+  componentDidMount() {
+    const api_weather = WeatherUrl(this.state.city);
 
     fetch(api_weather).then(resolve => {
       if (resolve.ok) {
@@ -52,6 +44,10 @@ class WeatherLocation extends Component {
         errorMsg: error.message
       });
     })
+  }
+
+  componentDidUpdate = (prevProps, prevState) => {
+    console.log('componentDidUpdate');
   }
 
   render = () => {
@@ -77,7 +73,7 @@ class WeatherLocation extends Component {
         >
           <Card.Body>
             <Location city={ city } />
-            { data ? <WeatherData data={ data } /> : <CircularProgress />}
+            { data ? <WeatherData data={ data } /> : <Loader /> }
           </Card.Body>
         </Card>
       </Col>

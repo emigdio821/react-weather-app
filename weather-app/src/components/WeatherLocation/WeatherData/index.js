@@ -8,10 +8,10 @@ const WeatherData = ({ data: {temperature, weatherState, humidity, wind }}) => (
   // const { temperature, weatherState, humidity, wind } = data;
   <div>
     <WeatherTemperature
-      temperature={temperature}
-      weatherState={weatherState}
+      temperature={ temperature }
+      weatherState={ weatherState }
     />
-    <WeatherExtraInfo humidity={humidity} wind={wind} />
+    <WeatherExtraInfo humidity={ humidity } wind={ wind } />
   </div>
 );
 
