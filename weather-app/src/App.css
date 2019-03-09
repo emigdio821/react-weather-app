@@ -48,3 +48,7 @@ footer {
 .social-links a:hover {
   background-color: #404040;
 }
+
+.modal {
+  -webkit-overflow-scrolling: touch;
+}
