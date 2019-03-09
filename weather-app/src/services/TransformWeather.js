@@ -1,4 +1,4 @@
-import Convert from 'convert-units';
+import Convert from "convert-units";
 import {
   CLOUD,
   RAIN,
@@ -6,13 +6,18 @@ import {
   SNOW,
   THUNDER,
   DRIZZLE
-} from './../constants/weathers';
+} from "./../constants/weathers";
 
-const getTemp = (kelvin) => {
-  return Number(Convert(kelvin).from("K").to("C").toFixed());
-}
+const getTemp = kelvin => {
+  return Number(
+    Convert(kelvin)
+      .from("K")
+      .to("C")
+      .toFixed()
+  );
+};
 
-const getWeatherState = (weather) => {
+const getWeatherState = weather => {
   const { id } = weather;
 
   if (id < 300) {
@@ -28,9 +33,9 @@ const getWeatherState = (weather) => {
   } else {
     return CLOUD;
   }
-}
+};
 
-const TransformWeather = (weather_data) => {
+const TransformWeather = weather_data => {
   const { humidity, temp } = weather_data.main;
   const { speed } = weather_data.wind;
   const weatherState = getWeatherState(weather_data.weather[0]);
@@ -40,10 +45,10 @@ const TransformWeather = (weather_data) => {
     humidity,
     temperature,
     weatherState,
-    wind: `${ speed } m/s`
-  }
+    wind: `${speed} m/s`
+  };
 
   return data;
-}
+};
 
 export default TransformWeather;

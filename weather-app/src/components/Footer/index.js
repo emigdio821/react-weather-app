@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Footer extends Component {
   render() {
-    return(
+    return (
       <footer className="footer mt-auto py-3">
         <div className="container">
           <div className="text-center text-white mb-3 social-links">
@@ -11,22 +11,25 @@ class Footer extends Component {
               href="https://github.com/emigdio821"
               className="text-white p-2 h3 social-icon"
               rel="noopener noreferrer"
-              target="_blank">
-              <FontAwesomeIcon icon={['fab', 'github']} />
+              target="_blank"
+            >
+              <FontAwesomeIcon icon={["fab", "github"]} />
             </a>
             <a
               href="https://twitter.com/emigdio821"
               className="text-white p-2 h3 social-icon"
               rel="noopener noreferrer"
-              target="_blank">
-              <FontAwesomeIcon icon={['fab', 'twitter']} />
+              target="_blank"
+            >
+              <FontAwesomeIcon icon={["fab", "twitter"]} />
             </a>
             <a
               href="https://linkedin.com/in/emigdio821/"
               className="text-white p-2 h3 social-icon"
               rel="noopener noreferrer"
-              target="_blank">
-              <FontAwesomeIcon icon={['fab', 'linkedin']} />
+              target="_blank"
+            >
+              <FontAwesomeIcon icon={["fab", "linkedin"]} />
             </a>
           </div>
           <div className="text-center text-white text-monospace">
@@ -34,7 +37,7 @@ class Footer extends Component {
           </div>
         </div>
       </footer>
-    )
+    );
   }
 }
 

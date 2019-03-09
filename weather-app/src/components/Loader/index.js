@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Loader extends Component {
   render() {
@@ -6,7 +6,7 @@ class Loader extends Component {
       <div className="spinner-grow text-center" role="status">
         <span className="sr-only">Loading...</span>
       </div>
-    )
+    );
   }
 }
 

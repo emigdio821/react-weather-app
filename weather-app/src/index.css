@@ -3,9 +3,10 @@ html {
   min-height: 100%;
 }
 
-html, body {
+html,
+body {
   background-size: cover;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   background-attachment: fixed;
 }
 
