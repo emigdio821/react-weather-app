@@ -6,10 +6,13 @@ import WeatherDetailsModal from './components/WeatherDetailsModal';
 import Footer from './components/Footer';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCity, faBolt, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faCity, faBolt, faHeart, faWind } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-library.add(fab, faCity, faBolt, faHeart);
+library.add(
+  fab, faCity, faBolt,
+  faHeart, faWind
+);
 
 const cities = [
   'Jalisco, MX',

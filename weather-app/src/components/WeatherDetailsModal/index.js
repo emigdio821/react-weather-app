@@ -7,21 +7,6 @@ import ForecastItem from '../ForecastItem';
 import Loader from './../Loader'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const data = {
-  temperature: 10,
-  humidity: 10,
-  weatherState: 'normal',
-  wind: 'normal'
-}
-
-const days = [
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday'
-]
-
 class ModalDetails extends Component {
 
   constructor() {
@@ -49,8 +34,6 @@ class ModalDetails extends Component {
       }
     }).then(data => {
       const forecastData = TransformForecast(data);
-      console.log(data);
-      console.log(forecastData);
 
       this.setState({ forecastData });
     }).catch(error => {
@@ -65,17 +48,19 @@ class ModalDetails extends Component {
 
   render() {
     const { city, showDetails, onHide } = this.props;
+    const { forecastData } = this.state;
     let modalBody;
     let forecastItem =
-      days.map(day => (
-        <ForecastItem
-          key={ `${ day }${ 12 }` }
-          weekDay={ day }
-          hour={ 12 }
-          data={ data }
-        />
-        )
-      )
+      forecastData ?
+        forecastData.map(forecast => (
+          <ForecastItem
+            key={ `${ forecast.weekDay }${ forecast.hour }` }
+            weekDay={ forecast.weekDay }
+            hour={ forecast.hour }
+            data={ forecast.data }
+          />
+          )
+        ) : <Loader />
 
     if (this.state.loading) {
       modalBody =
@@ -102,9 +87,12 @@ class ModalDetails extends Component {
       >
       <Modal.Header closeButton>
         <Modal.Title>
-          <span className="mr-2 text-muted">Forecast for</span>
           { city }
           <FontAwesomeIcon icon="city" className="ml-2" />
+          <div className="text-muted">
+            Forecast
+            <FontAwesomeIcon icon="wind" className="ml-2" />
+          </div>
         </Modal.Title>
       </Modal.Header>
       { modalBody }
