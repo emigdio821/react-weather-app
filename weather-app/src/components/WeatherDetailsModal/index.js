@@ -47,10 +47,11 @@ class ModalDetails extends Component {
     this.getForecastPerCity(this.props.city);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.city !== this.props.city) {
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.city !== this.props.city) {
       this.setState({ forecastData: null });
-      this.getForecastPerCity(nextProps.city);
+      this.getForecastPerCity(this.props.city);
     }
   }
 
