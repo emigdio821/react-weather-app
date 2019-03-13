@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import "./App.css";
+import { connect } from "react-redux";
 import LocationList from "./components/LocationList";
 import { Container, Navbar, Row } from "react-bootstrap";
 import WeatherDetailsModal from "./components/WeatherDetailsModal";
 import Footer from "./components/Footer";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
+import { setCity } from "./actions";
 import {
   faCity,
   faBolt,
@@ -13,6 +14,7 @@ import {
   faWind
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./App.css";
 
 library.add(fab, faCity, faBolt, faHeart, faWind);
 
@@ -28,6 +30,7 @@ class App extends Component {
 
   handleSelectionLocation = city => {
     this.setState({ city, modalShow: true });
+   this.props.setCity(city);
   };
 
   handleShow() {
@@ -78,4 +81,15 @@ class App extends Component {
   }
 }
 
-export default App;
+// export default App;
+
+const mapDispatchToPropsActions = dispatch => ({
+  setCity: value => dispatch(setCity(value))
+});
+
+const AppConnected = connect(
+  null,
+  mapDispatchToPropsActions
+)(App);
+
+export default AppConnected;
